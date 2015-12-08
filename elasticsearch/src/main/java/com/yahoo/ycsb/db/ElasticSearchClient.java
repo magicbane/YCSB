@@ -92,7 +92,7 @@ public class ElasticSearchClient extends DB {
                 .put("index.gateway.type", "none")
                 .put("index.number_of_shards", "1")
                 .put("index.number_of_replicas", "0")
-                .put("path.home", "~/");//TODO workaround
+                .put("path.home", "/usr/share/elasticsearch/lib/");//TODO workaround
 
 
         //if properties file contains elasticsearch user defined properties
@@ -130,7 +130,7 @@ public class ElasticSearchClient extends DB {
             client = node.client();
         }
 
-
+        client.admin().cluster().prepareHealth().setWaitForYellowStatus().execute().actionGet(5000);
         if (newdb) {
             client.admin().indices().prepareDelete(indexKey).execute().actionGet();
             client.admin().indices().prepareCreate(indexKey).execute().actionGet();

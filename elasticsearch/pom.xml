@@ -55,6 +55,11 @@ LICENSE file.
             <artifactId>testng</artifactId>
             <version>6.1.1</version>
             <scope>test</scope>
-        </dependency>
+    </dependency>
+     <dependency>
+                     <groupId>net.java.dev.jna</groupId>
+                             <artifactId>jna</artifactId>
+                                     <version>4.1.0</version>
+                                         </dependency>
     </dependencies>
 </project>
